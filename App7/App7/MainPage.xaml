@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="App7.MainPage">
+
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Image Aspect="AspectFill" Source="ENGIELogo.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+        <BoxView BackgroundColor="Beige" Opacity="0.9"/>
+        <SwipeView x:Name="MainSwipeView" BackgroundColor="Transparent">
+            <Grid x:Name="swipeContent">
+                <pv:PancakeView x:Name="pancake" BackgroundColor="White">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Padding="30">
+                            <Image Source="logoengieblue.png" HeightRequest="18" HorizontalOptions="Start">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OpenSwipe"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Image Source="logoengiesmallblue.png" HeightRequest="36" HorizontalOptions="End"/>
+                        </Grid>
+                        <StackLayout Grid.Row="1" Padding="50,30">
+                            <Label Text="Text Line 1" TextColor="Black" FontSize="22" FontAttributes="Bold"/>
+                            <Label Text="Text Line 2" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="2" Spacing="20" Padding="50,0,0,0">
+                            <pv:PancakeView Padding="20,10" CornerRadius="20,0,20,0" BackgroundColor="Cyan"
+                                            HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                <StackLayout Spacing="20" Orientation="Horizontal">
+                                    <Image Source="logoengiesmallblue.png" WidthRequest="13"/>
+                                    <Label Text="Text Line 3" TextColor="White" FontSize="14" 
+                                           VerticalOptions="Center"/>
+                                </StackLayout>
+                            </pv:PancakeView>
+                            <pv:PancakeView Padding="20,10" CornerRadius="20,0,20,0" BackgroundColor="Cyan"
+                                            HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                <StackLayout Spacing="20" Orientation="Horizontal">
+                                    <Image Source="logoengiesmallblue.png" WidthRequest="13"/>
+                                    <Label Text="Text Line 4" TextColor="White" FontSize="14" 
+                                           VerticalOptions="Center"/>
+                                </StackLayout>
+                            </pv:PancakeView>
+                            <pv:PancakeView Padding="20,10" CornerRadius="20,0,20,0" BackgroundColor="Cyan"
+                                            HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                <StackLayout Spacing="20" Orientation="Horizontal">
+                                    <Image Source="logoengiesmallblue.png" WidthRequest="13"/>
+                                    <Label Text="Text Line 5" TextColor="White" FontSize="14" 
+                                           VerticalOptions="Center"/>
+                                </StackLayout>
+                            </pv:PancakeView>
+                        </StackLayout>
+                    </Grid>         
+                </pv:PancakeView>
+            </Grid>
+        </SwipeView>
+    </Grid>
+</ContentPage>
