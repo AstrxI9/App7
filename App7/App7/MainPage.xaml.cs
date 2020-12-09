@@ -62,6 +62,20 @@ namespace App7
         {
             await Navigation.PushAsync(new ComplianceForm { });
         }
+
+        async void OnMenuButtonClicked(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var text = button.Text;
+            Console.WriteLine(text);
+            if (text == "Help")
+            {
+                await Navigation.PushAsync(new HelpPage { });
+            } else if (text == "About")
+            {
+                await Navigation.PushAsync(new AboutPage { });
+            }
+        }
     }
 
     public class Menu
