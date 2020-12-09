@@ -42,6 +42,26 @@ namespace App7
         {
             (sender as Button).Text = "Button Clicked";
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        async void OnQRButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AboutPage { });
+        }
+
+        async void OnConditionButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ConditionForm { });
+        }
+
+        async void OnComplianceButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ComplianceForm { });
+        }
     }
 
     public class Menu

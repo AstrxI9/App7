@@ -10,7 +10,7 @@ namespace App7
         {
             InitializeComponent();
             Device.SetFlags(new[] { "SwipeView_Experimental" });
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
