@@ -8,6 +8,32 @@
         <Image Aspect="AspectFill" Source="ENGIELogo.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
         <BoxView BackgroundColor="Beige" Opacity="0.9"/>
         <SwipeView x:Name="MainSwipeView" BackgroundColor="Transparent">
+            <SwipeView.LeftItems>
+                <SwipeItems>
+                    <SwipeItemView>
+                        <Grid>
+                            <StackLayout Spacing="20" Padding="35" WidthRequest="250" BindableLayout.ItemsSource="{Binding MyMenu}" VerticalOptions="FillAndExpand">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="CloseSwipe"/>
+                                            </StackLayout.GestureRecognizers>
+                                            <pv:PancakeView BackgroundColor="Red" HeightRequest="30" 
+                                                            WidthRequest="30" CornerRadius="15" VerticalOptions="Center"
+                                                            HorizontalOptions="Start">
+                                                <Image Source="{Binding Icon}" HeightRequest="15" WidthRequest="15" VerticalOptions="Center"/>
+                                            </pv:PancakeView>
+                                            <Button Text="{Binding Name}" TextColor="White" FontSize="15" FontAttributes="Bold" 
+                                                   HorizontalOptions="Center" Clicked="OnButtonClicked"/>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </StackLayout>
+                        </Grid>
+                    </SwipeItemView>
+                </SwipeItems>
+            </SwipeView.LeftItems>
             <Grid x:Name="swipeContent">
                 <pv:PancakeView x:Name="pancake" BackgroundColor="White">
                     <Grid>
@@ -26,34 +52,78 @@
                             <Image Source="logoengiesmallblue.png" HeightRequest="36" HorizontalOptions="End"/>
                         </Grid>
                         <StackLayout Grid.Row="1" Padding="50,30">
-                            <Label Text="Text Line 1" TextColor="Black" FontSize="22" FontAttributes="Bold"/>
-                            <Label Text="Text Line 2" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+                            <Label Text="Title Idea goes here" TextColor="Black" FontSize="22" FontAttributes="Bold" FontFamily="Lato"/>
+                            <Label Text="Generic welcome back message" TextColor="Black" FontSize="20" FontAttributes="Bold" FontFamily="Lato"/>
                         </StackLayout>
+                        
+                        
+                        
                         <StackLayout Grid.Row="2" Spacing="20" Padding="50,0,0,0">
-                            <pv:PancakeView Padding="20,10" CornerRadius="20,0,20,0" BackgroundColor="Cyan"
+                            <pv:PancakeView Padding="20,10" CornerRadius="20,0,20,0" BackgroundColor="#009de9"
                                             HorizontalOptions="FillAndExpand" VerticalOptions="Start">
                                 <StackLayout Spacing="20" Orientation="Horizontal">
                                     <Image Source="logoengiesmallblue.png" WidthRequest="13"/>
-                                    <Label Text="Text Line 3" TextColor="White" FontSize="14" 
+                                    <Label Text="QR Scanner" TextColor="White" FontSize="14" FontFamily="Lato" 
                                            VerticalOptions="Center"/>
+                                    <Button Text="Button1" Clicked="OnButtonClicked"/>
                                 </StackLayout>
                             </pv:PancakeView>
-                            <pv:PancakeView Padding="20,10" CornerRadius="20,0,20,0" BackgroundColor="Cyan"
+                            <pv:PancakeView Padding="20,10" CornerRadius="20,0,20,0" BackgroundColor="#009de9"
                                             HorizontalOptions="FillAndExpand" VerticalOptions="Start">
                                 <StackLayout Spacing="20" Orientation="Horizontal">
                                     <Image Source="logoengiesmallblue.png" WidthRequest="13"/>
-                                    <Label Text="Text Line 4" TextColor="White" FontSize="14" 
+                                    <Label Text="Text Line 4" TextColor="White" FontSize="14" FontFamily="Lato" 
                                            VerticalOptions="Center"/>
                                 </StackLayout>
                             </pv:PancakeView>
-                            <pv:PancakeView Padding="20,10" CornerRadius="20,0,20,0" BackgroundColor="Cyan"
+                            <pv:PancakeView Padding="20,10" CornerRadius="20,0,20,0" BackgroundColor="#009de9"
                                             HorizontalOptions="FillAndExpand" VerticalOptions="Start">
                                 <StackLayout Spacing="20" Orientation="Horizontal">
                                     <Image Source="logoengiesmallblue.png" WidthRequest="13"/>
-                                    <Label Text="Text Line 5" TextColor="White" FontSize="14" 
+                                    <Label Text="Submit Forms" TextColor="White" FontSize="14" FontFamily="Lato"
                                            VerticalOptions="Center"/>
                                 </StackLayout>
                             </pv:PancakeView>
+                        </StackLayout>
+                        
+                        <!--Bottom Rounded Squares-->
+                        <StackLayout Grid.Row="3" Padding="50,0">
+                            <Label Text="Text Line 6" TextColor="Black" FontSize="15" FontAttributes="Bold" FontFamily="Lato"/>
+                            <Grid HorizontalOptions="FillAndExpand" ColumnSpacing="20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <!--Bottom Left-->
+                                <pv:PancakeView Padding="10" BackgroundColor="#0af" CornerRadius="15" HeightRequest="90">
+                                    <Grid HorizontalOptions="FillAndExpand">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" Spacing="10">
+                                            <Image Source="logoengiewhite.png" HeightRequest="12"/>
+                                            <Label Text="Condition Survey Form" TextColor="Black" FontSize="12" VerticalOptions="Center" FontFamily="Lato"/>
+                                        </StackLayout>
+                                        <Label Grid.Row="1" Text="Button to go here" TextColor="Black" FontSize="25" FontFamily="Lato" 
+                                               VerticalOptions="End"/>
+                                    </Grid>
+                                </pv:PancakeView>
+                                <!--Bottom Right-->
+                                <pv:PancakeView Grid.Column="1" Padding="10" BackgroundColor="#0af" CornerRadius="15" HeightRequest="90">
+                                    <Grid HorizontalOptions="FillAndExpand">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Orientation="Horizontal" Spacing="10">
+                                            <Image Source="logoengiewhite.png" HeightRequest="12"/>
+                                            <Label Text="Compliance Form" TextColor="Black" FontSize="12" FontFamily="Lato" VerticalOptions="Center"/>
+                                        </StackLayout>
+                                        <Label Grid.Row="1" Text="Button to go here" TextColor="Black" FontSize="25" VerticalOptions="End"/>
+                                    </Grid>
+                                </pv:PancakeView>
+                            </Grid>
                         </StackLayout>
                     </Grid>         
                 </pv:PancakeView>
